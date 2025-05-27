@@ -24,7 +24,7 @@ jobs:
           aws configure set default.region ${{ secrets.AWS_DEFAULT_REGION }}
           aws ecr get-login-password --region ${{ secrets.AWS_DEFAULT_REGION }} | docker login --username AWS --password-stdin 953966107292.dkr.ecr.us-east-1.amazonaws.com
       - name: Build and push
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v3
         with:
           context: .
           build-args: |
